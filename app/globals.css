@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.custom-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2.5rem;
+  justify-content: center; /* This will center the entire grid content when items are fewer */
+}
+.item {
+  grid-column: span 2;
+
+  /* Dealing with 2 orphan items */
+  &:last-child:nth-child(3n - 1) {
+    grid-column-end: -2;
+  }
+
+  &:nth-last-child(2):nth-child(3n + 1) {
+    grid-column-end: 4;
+  }
+}
